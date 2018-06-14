@@ -6,7 +6,7 @@ pipeline {
 
             steps {
               
-                    sh 'mvn clean compile'
+                    sh 'mvn clean compile package'
                 
             }
         }
@@ -19,7 +19,13 @@ pipeline {
                 
             }
         }
-
+ stage (' Test') {
+            steps {
+               
+                    build job: 'static analysis'
+                
+            }
+        }
 
         stage ('Deployment Stage') {
             steps {
