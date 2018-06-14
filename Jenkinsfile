@@ -28,5 +28,12 @@ pipeline {
                 
             }
         }
+        stage ('Deployment Prod') {
+            steps {
+               
+                    build job: 'Deploy-to-Prod'
+                
+            }
+        }
     }
 }
