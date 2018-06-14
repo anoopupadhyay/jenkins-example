@@ -6,12 +6,20 @@ pipeline {
 
             steps {
               
-                    sh 'mvn clean compile package'
+                    sh 'mvn clean compile '
                 
             }
         }
 
-        stage ('Testing Stage') {
+		 stage ('package Stage') {
+
+            steps {
+              
+                    sh 'mvn package'
+                
+            }
+        }
+        stage ('Unit Stage') {
 
             steps {
                
@@ -19,10 +27,10 @@ pipeline {
                 
             }
         }
- stage (' Test') {
+		stage ('Static Test') {
             steps {
                
-                    build job: 'static analysis'
+                    sh 'mvn checkstyle:checkstyle'
                 
             }
         }
