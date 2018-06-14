@@ -24,7 +24,7 @@ pipeline {
         stage ('Deployment Stage') {
             steps {
                
-                    sh 'mvn deploy'
+                    build job: 'Deploy-to-staging'
                 
             }
         }
